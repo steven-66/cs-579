@@ -1,0 +1,70 @@
+Enter your responses inline below and push this file to your private GitHub
+repository.
+
+
+1. Assume I plan to use the friend_overlap function above to quantify the
+similarity of two users. E.g., because 238 is larger than 1, I conclude that
+Jill Stein and Gary Johnson are more similar than Hillary Clinton and Donald
+Trump.
+
+How is this approach misleading? How might you fix it?
+
+Beacause Trump and Hillary follow less friends than Jill and Gary do, so they 
+may have less common friends. We should compute the percentage of how many friends
+in common according to their total amount of friends.
+
+
+
+
+
+
+
+2. Looking at the output of your followed_by_hillary_and_donald function, why
+do you think this user is followed by both Hilary Clinton and Donald Trump,
+who are rivals? Do some web searches to see if you can find out more
+information.
+
+I got two user that is followed by both, one is WhiteHouse and the other is VP(Mike Pence).
+Since Trump and Hillary are both former president candidates,there is no wonder that both of them follow
+WhiteHouse, so they are rivals before. As for VP, I believe that from Trump's perspective, Mike is his right 
+hand, helping him win the election and beacome his vice president, and from Hillary's perspective, maybe in the 
+period of election, she can gather some information about her opponents.
+
+
+
+
+
+
+
+
+
+
+
+
+3. There is a big difference in how many accounts each candidate follows (Gary
+Johnson follows over 3K accounts, while Donald Trump follows less than
+50). Why do you think this is? How might that affect our analysis?
+
+Because Trump is the president of US, who is the No.1 public figure of US, so he is pretty 
+cautious about who he gonna follow. Since Tump follows so few peeple, we have no idea about what real stuff 
+that Trump would have insterest in and so that we can not draw a real conclusion that who is tightly connected to 
+Trump. 
+
+
+
+
+
+
+
+4. The follower graph we've collected is incomplete. To expand it, we would
+have to also collect the list of accounts followed by each of the
+friends. That is, for each user X that Donald Trump follows, we would have to
+also collect all the users that X follows. Assuming we again use the API call
+https://dev.twitter.com/rest/reference/get/friends/ids, how many requests will
+we have to make? Given how Twitter does rate limiting
+(https://dev.twitter.com/rest/public/rate-limiting), approximately how many
+minutes will it take to collect this data?
+
+As we see in the graph, there are 270 nodes in total, leaving out 4 candidates node, 266 left, what we need to do is to get 
+the friends of these 266 nodes, which is gonna take us 266/15=17.7 times request, since the rate limiting is 15 times
+per 15 minutes and in the last-round request we do it pretty fast, so it will take 17*15=255 minutes.

@@ -1,0 +1,33 @@
+Grade: 31.00/35.00
+
+1 Deduction(s):
+
+--------------
+#1: 4.00 points
+Failing test: test_create_graph: 
+        @points=4
+        
+Traceback (most recent call last):
+  File "../assignments-sol/a0/a0_test.py", line 81, in test_create_graph
+    Counter({1: 2, 2: 3, 3: 2, 4:1})
+  File "students/steven-66/a0/a0.py", line 309, in create_graph
+    if users[j]['id'] in users[i]['friends']:
+KeyError: 'id'
+
+source:
+    def test_create_graph(self):
+         """
+         @points=4
+         """
+         graph = create_graph(
+             [{'screen_name': 'a', 'friends': [1, 2, 3]},
+              {'screen_name': 'b', 'friends': [2, 3, 4]},
+              {'screen_name': 'c', 'friends': [1, 2, 3]}],
+             Counter({1: 2, 2: 3, 3: 2, 4:1})
+             )
+         n = len(graph.nodes())
+         e = len(graph.edges())
+         self.assertEqual(n, 6)
+         self.assertEqual(e, 8)
+--------------
+

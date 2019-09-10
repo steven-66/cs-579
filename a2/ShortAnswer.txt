@@ -1,0 +1,45 @@
+1. Looking at the top errors printed by get_top_misclassified, name two ways you would modify your classifier to improve accuracy (it could be features, tokenization, or something else.)
+
+From tokenization aspect, we can filt some no-sense tokens like '<br></br>', these are gonna bring out some noise. 
+
+From features aspect, we can try trigram or quadrigram tokens, make them into features.
+
+
+
+2. Implement one of the above methods. How did it affect the results?
+
+As I implement token_quadrigram_features, the accuracy of best model and testing improve a little bit, the worst model drops a lot, detailed result is as following:
+best cross-validation result:
+{'punct:': False, 'features:': (<function token_features at 0x0E31AC90>, <function token_quadrigram_features at 0x0E31AD20>, <function lexicon_features at 0x0E31AD68>), 'min_freq:': 2, 'accuracy:': 0.7300000000000001}
+worst cross-validation result:
+{'punct:': True, 'features:': (<function token_quadrigram_features at 0x0E31AD20>,), 'min_freq:': 5, 'accuracy:': 0.49749999999999994}
+
+Mean Accuracies per Setting:
+features=token_features token_quadrigram_features lexicon_features: 0.70667
+features=token_features lexicon_features: 0.69958
+features=token_features token_quadrigram_features: 0.69542
+features=token_features: 0.69292
+min_freq=2: 0.68464
+punct=False: 0.67917
+features=token_quadrigram_features lexicon_features: 0.66125
+min_freq=5: 0.66000
+min_freq=10: 0.65429
+punct=True: 0.65345
+features=lexicon_features: 0.65125
+features=token_quadrigram_features: 0.55708
+
+TOP COEFFICIENTS PER CLASS:
+negative words:
+neg_words: 0.92965
+token=nothing: 0.52945
+token=only: 0.45191
+token=looks: 0.40919
+token=waste: 0.39824
+
+positive words:
+pos_words: 0.50758
+token=it: 0.39800
+token=worth: 0.35853
+token=great: 0.34127
+token=excellent: 0.33147
+testing accuracy=0.770000

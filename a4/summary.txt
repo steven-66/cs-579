@@ -1,0 +1,16 @@
+There are 8 initial users collected.
+
+Collected 85 tweets, which is the maximum number of tweets we could collect.
+
+2 communities are founded
+
+Average number of users per community: 59
+
+The positive class has 24 instances
+The negative class has 61 instances
+
+Positive example:
+@EmmaWatson THAT SOUNDS LIKE YOU!
+"Hi. You don't know me but suddenly we've been flirting all along. Like I know yo… https://t.co/fR5My8y2A0
+Negative example:
+b'@JosephKahn @taylorswift13 @kendricklamar @SabrinaAnnLynn @Camila_Cabello @selenagomez @eltonofficial\xe2\x80\xa6 https://t.co/TWGYFc5AW6'

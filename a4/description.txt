@@ -1,0 +1,21 @@
+I use TwitterAPI to collect 8 celebrity users and the real-time tweets mentioned one of them for networking, clutering and sentiment analysis.
+
+collect.py is aimed at collecting basic user info(id, screenname, etc) and getting their friends to build up a network, the second jpb is collecting
+tweets mentioned one of them by random choosing a user and search tweets mentioned him/her.
+
+cluster.py is to divide the initial eight users and their friends into different communities. For the friends part, I only consider 
+friends that are followed by at least two users. For community detection, I only take at least two users as a cluster.
+
+For classify.py I use logistic-regression model from sklearn to classify the sentiment of each tweet. The annotated training data and testing data are 
+downloaded from http://help.sentiment140.com/for-students/. since the original training dataset is pretty big(over 224M), so I pre-processed them by extracting 
+a part of the data to be my training data. This classifier only classify data into two classes(postive and negative tweets).
+
+summarize.py prints the output to summary.txt
+
+Conclusion:
+
+Since these 8 users are celebrity, there are a big network among them. There are only 2 strongly connected community I discoverd, one is for jk_rowing, 
+another consists of justinbieber, juliannehough, rihanna. Since Jk Rowing is an author, so she may not connect with other users, most of them are singer and musician.
+For the sentiment classification, my model might be a little overfitting, since the training data is a bit out-of-date and somehow misslabeled, the overall prediction accuracy
+for the testset is good. The prediction for real-time tweets shows that negative class is more than the positive, this might be some tweets are just foward a link and some nonsense
+internet symbol, that is hard to match our training feature, and just falling into the negative class.
